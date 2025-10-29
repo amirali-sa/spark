@@ -19,7 +19,7 @@
 spark is made up of three separate components:
 
 * **CPU Profiler**: Diagnose performance issues.
-* **Memory Inspection**: Diagnose memory issues.
+* **Memory Inspection**: Diagnose memory issues.11
 * **Server Health Reporting**: Keep track of overall server health.
 
 ### :zap: CPU Profiler
