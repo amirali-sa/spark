@@ -39,7 +39,7 @@ public enum FormatUtil {
         if (bytes <= 0) {
             return "0 bytes";
         }
-        int sizeIndex = (int) (Math.log(bytes) / Math.log(1024));
+        int sizeIndex = (63 - Long.numberOfLeadingZeros(bytes + 1)) / 10;
         return String.format(Locale.ENGLISH, "%.1f", bytes / Math.pow(1024, sizeIndex)) + " " + SIZE_UNITS[sizeIndex];
     }
 
@@ -51,7 +51,7 @@ public enum FormatUtil {
             value = "0";
             unit = "KB" + suffix;
         } else {
-            int sizeIndex = (int) (Math.log(bytes) / Math.log(1024));
+            int sizeIndex = (63 - Long.numberOfLeadingZeros(bytes + 1)) / 10;
             value = String.format(Locale.ENGLISH, "%.1f", bytes / Math.pow(1024, sizeIndex));
             unit = SIZE_UNITS[sizeIndex] + suffix;
         }

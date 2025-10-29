@@ -64,4 +64,11 @@ public class FormatUtilTest {
         assertEquals("3m", FormatUtil.formatSeconds(180));
     }
 
+    @Test
+    public void testBytesEdgeCase() {
+        // test with a value that is 1 byte less than 1 MB
+        // this would previously format to "1024.0 KB", which is confusingly the same as "1.0 MB"
+        assertEquals("1.0 MB", FormatUtil.formatBytes((1024 * 1024) - 1));
+    }
+
 }
